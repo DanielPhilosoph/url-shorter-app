@@ -132,7 +132,7 @@ async function onStatisticsMonthClick() {
     let monthName = date.toLocaleString("en-US", { month: "long" });
     let header = `Entries for year ${year} in ${monthName}`;
     document.querySelector(".div8").classList.add("visible");
-    createChart(header, getColumnsDays, yearLogsArray, year, month);
+    createChart(header, getColumnsDays, yearLogsArray, "Days", year, month);
   } catch (error) {
     if (typeof error === "string") {
       document.querySelector("#statistisError").textContent =
@@ -153,7 +153,7 @@ async function onStatisticsYearClick() {
     let yearLogArray = getLogsByYear(shortUrlInfo.redirectEntriesLog, year);
     let header = `Entries for year ${year}`;
     document.querySelector(".div8").classList.add("visible");
-    createChart(header, getColumnsMonth, yearLogArray, year);
+    createChart(header, getColumnsMonth, yearLogArray, "Month", year);
   } catch (error) {
     if (typeof error === "string") {
       document.querySelector("#statistisError").textContent =
@@ -214,6 +214,7 @@ function createChart(
   header,
   columsFunction,
   logsArray,
+  xTitle,
   year,
   month = undefined
 ) {
@@ -225,7 +226,7 @@ function createChart(
       title: "Entries",
     },
     axisX: {
-      title: "Month",
+      title: xTitle,
     },
     data: [
       {

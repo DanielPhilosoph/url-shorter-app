@@ -27,7 +27,7 @@ router.post("/custom", (req, res, next) => {
 });
 
 /**
- *  * Generate new url short
+ *  * Returns url short info
  */
 router.get("/info/:urlid", (req, res, next) => {
   try {
