@@ -122,9 +122,9 @@ async function onActivateCustomClick() {
 async function onStatisticsMonthClick() {
   try {
     resetErrors();
-    let shortUrlInfo = await getInfo(
-      document.querySelector("#satisticInput").value
-    );
+    let shortUrl = document.querySelector("#satisticInput").value;
+    validShortUrl(shortUrl);
+    let shortUrlInfo = await getInfo(shortUrl);
     let date = new Date(document.querySelector("#satisticInputMonth").value);
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -146,9 +146,9 @@ async function onStatisticsMonthClick() {
 async function onStatisticsYearClick() {
   try {
     resetErrors();
-    let shortUrlInfo = await getInfo(
-      document.querySelector("#satisticInput").value
-    );
+    let shortUrl = document.querySelector("#satisticInput").value;
+    validShortUrl(shortUrl);
+    let shortUrlInfo = await getInfo(shortUrl);
     let year = document.querySelector("#satisticInputYear").value;
     let yearLogArray = getLogsByYear(shortUrlInfo.redirectEntriesLog, year);
     let header = `Entries for year ${year}`;
@@ -167,6 +167,12 @@ async function onStatisticsYearClick() {
 // ==============================
 // ====== Help Functions ========
 // ==============================
+
+function validShortUrl(shortUrl) {
+  if (shortUrl === "") {
+    throw { message: "Short url cant be null" };
+  }
+}
 
 function isUrlValid(url) {
   if (url === "") {
@@ -201,7 +207,6 @@ function copyToClipBoard(inputId) {
   resultInput.select();
   resultInput.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(resultInput.value);
-  resultInput.blur();
 }
 
 function getLogsByYear(logsArray, year) {
