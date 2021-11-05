@@ -94,3 +94,11 @@ _#1.json_
 
 - `if localy` = 3000
 - `process.env.PORT` = 443
+
+## Analytics
+
+![exe](./ImagesREADME/canvasMonth.png)
+
+![exe](./ImagesREADME/canvaYear.png)
+
+> > > > > > > 6efc433a0b283c4aee5c9d5af32590678ae85860
