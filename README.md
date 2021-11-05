@@ -2,7 +2,7 @@
 
 ## Preview - <image>
 
-**Preview sentence**
+![exe](./ImagesREADME/shortUrl.png)
 
 ## Project Goals
 
