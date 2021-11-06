@@ -62,7 +62,7 @@ _#1.json_
   ```js
 
      let response = await axios.post(
-       "http://localhost:3000/api/shorturl/custom",
+       "/api/shorturl/custom",
      {
        url: fullUrl,
        custom: custom,
@@ -76,7 +76,7 @@ _#1.json_
   - Generate a short URL based on API generator. (the custom URL is in the body of the request)
 
   ```js
-  let response = await axios.post("http://localhost:3000/api/shorturl/", {
+  let response = await axios.post("/api/shorturl/", {
     url: fullUrl,
   });
   ```
