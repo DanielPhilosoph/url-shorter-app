@@ -133,7 +133,8 @@ document
 // ====== Event Listeners =======
 // ==============================
 
-async function onActivateClick() {
+async function onActivateClick(event) {
+  event.preventDefault();
   try {
     resetErrors();
     let url = document.querySelector("#url").value;
@@ -284,10 +285,8 @@ async function getCustomShortUrl(fullUrl, custom) {
         custom: custom,
       }
     );
-    console.log(response);
     return response.data.custom;
   } catch (error) {
-    console.log(error.response.data);
     throw error.response.hasOwnProperty("data")
       ? error.response.data
       : "Connection problem";
